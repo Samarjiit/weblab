@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mouse Coordinates Demo</title>
+</head>
+<body>
+  <canvas id="canvas" width="400" height="400"></canvas>
+  <p id="coords"></p>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // add event listener for mouse move
+    canvas.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      // display the coordinates
+      document.getElementById('coords').textContent = `Mouse coordinates: (${x}, ${y})`;
+    });
+
+    // draw a rectangle on the canvas
+    ctx.fillRect(50, 50, 300, 300);
+  </script>
+</body>
+</html>
